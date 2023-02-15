@@ -1,0 +1,39 @@
+ 
+
+Pour encadrer la droite graduée:  
+
+cv2.boundingRect est une fonction de OpenCV qui calcule le rectangle minimal entourant un contour dans une image. Cette fonction prend en entrée un contour et retourne les coordonnées du coin supérieur gauche (x, y) et les dimensions du rectangle (w, h) sous forme de tuple (x, y, w, h). 
+
+Pour convertir l’image en nuances de gris:  
+
+cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
+
+Cette fonction convertie l’image en noir et blanc, avec la méthide cv2.COLOR_BGRGRAY 
+
+Pour convertir l’image en binaire: 
+
+cv2.threshold est une fonction de OpenCV qui applique un seuil à une image grise pour la convertir en image binaire. Cette fonction prend en entrée une image grise et un seuil (une valeur) et retourne une image binaire et le seuil utilisé. 
+
+Pour cv2.THRESH_BINARY, testé avec 127 
+
+L'image binaire est une image dans laquelle les pixels ont deux valeurs possibles : 0 (noir) ou 255 (blanc). Les pixels dans l'image d'entrée qui ont une intensité inférieure au seuil sont remplacés par 0 (noir), tandis que les pixels avec une intensité supérieure ou égale au seuil sont remplacés par 255 (blanc). 
+
+https://docs.opencv.org/3.4/d7/d4d/tutorial_py_thresholding.html 
+
+Utilisation de cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2) 
+
+https://docs.opencv.org/3.4/d7/d1b/group__imgproc__misc.html#ga72b913f352e4a1b1b397736707afcde3 
+
+ 
+
+Pour extraire les contours et les tracer sur l’image : 
+
+CountersImg = cv2.drawContours(drawing, contours, -1, (255, 255, 0), 3) 
+
+Cette fonction ajoute les dessins de contours dans un tableau de la taille de notre image. 
+
+ 
+
+cv2.drawContours(CountersImg, longest_contour, -1, (0, 0, 255), 2) 
+
+ 
